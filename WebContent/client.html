@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+ $(document).ready(function(){
+     $("button").click(function(){
+         $("#idDiv").load("http://localhost:9000/rest/getemployee");
+     });
+ });
+</script>
+
+</head>
+<body>
+
+
+<h2>CORS CLIENT</h2>
+ <div id="idDiv"></div>
+<br/>
+ <button>Make Ajax call</button>
+</body>
+
+</body>
+</html>
