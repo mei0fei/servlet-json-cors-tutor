@@ -44,6 +44,7 @@ public class CORSFilter implements Filter {
  
         // Authorize (allow) all domains to consume the content
         ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Origin", "*");
+        ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Methods","GET, OPTIONS, HEAD, PUT, POST");
  
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
@@ -68,6 +69,12 @@ public class CORSFilter implements Filter {
 }
 
 /*
+ * 
+ * 跨来源资源共享（CORS）是一份浏览器技术的规范，提供了 Web 服务从不同网域传来沙盒脚本的方法，
+ * 以避开浏览器的同源策略，是 JSONP 模式的现代版。与 JSONP 不同，CORS 除了 GET 要求方法以外也支持其他的 HTTP 要求。
+ * 用 CORS 可以让网页设计师用一般的 XMLHttpRequest，这种方式的错误处理比 JSONP 要来的好。
+ * 另一方面，JSONP 可以在不支持 CORS 的老旧浏览器上运作。现代的浏览器都支持 CORS。
+ * 
  * Response Headers
 
 Access-Control-Allow-Origin : specifies the authorized domains to make cross-domain request. Use “*” as value if there is no restrictions.
